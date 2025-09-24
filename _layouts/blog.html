@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<section class="container blog-index">
+  <header class="page-header">
+    <h1>{{ page.title | default: 'Blog' }}</h1>
+    {% if page.lead %}
+    <p class="lead">{{ page.lead }}</p>
+    {% endif %}
+  </header>
+  <div class="post-list">
+    {% assign posts = site.posts | sort: 'date' | reverse %}
+    {% for post in posts %}
+    <article class="post-card">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p class="post-meta">{{ post.date | date: '%B %d, %Y' }}</p>
+      <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+      <a class="read-more" href="{{ post.url | relative_url }}">Read more →</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>

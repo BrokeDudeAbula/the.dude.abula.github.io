@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  {% include head.html %}
+  <body class="layout-{{ page.layout | default: 'default' }}">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    {% include header.html %}
+    <main id="main-content" class="page-content">
+      {% if page.hero %}
+        {% include hero.html title=page.hero.title subtitle=page.hero.subtitle cta=page.hero.cta %}
+      {% endif %}
+      {{ content }}
+    </main>
+    {% include footer.html %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+  </body>
+</html>

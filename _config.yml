@@ -1,0 +1,55 @@
+title: The Dude Abula
+description: >-
+  Personal site, blog, and project portfolio for The Dude Abula.
+url: "https://the-dude-abula.github.io"
+baseurl: ""
+lang: en
+timezone: Asia/Shanghai
+permalink: pretty
+collections_dir: content
+collections:
+  posts:
+    output: true
+    permalink: /blog/:slug/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: The Dude Abula
+      tags: []
+  - scope:
+      path: pages
+      type: pages
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: ""
+    values:
+      layout: default
+sass:
+  sass_dir: _sass
+  style: compressed
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+feed:
+  path: feed.xml
+seo:
+  type: "Person"
+  name: "The Dude Abula"
+  social:
+    github: the-dude-abula

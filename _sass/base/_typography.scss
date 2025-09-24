@@ -1,0 +1,47 @@
+body {
+  font-family: $font-stack-base;
+  background: radial-gradient(circle at top, lighten($color-background, 5%), $color-background);
+  color: $color-text;
+  line-height: 1.6;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover,
+  &:focus {
+    color: $color-accent-dark;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  color: inherit;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: $color-text;
+}
+
+.lead {
+  color: $color-text-muted;
+  font-size: 1.125rem;
+  margin-top: -0.5rem;
+}
+
+code, pre {
+  font-family: $font-stack-mono;
+  background-color: rgba(15, 23, 42, 0.7);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}

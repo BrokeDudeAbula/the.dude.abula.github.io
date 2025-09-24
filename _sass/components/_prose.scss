@@ -1,0 +1,36 @@
+.page-body,
+.post-body {
+  display: grid;
+  gap: 1.5rem;
+
+  h2 {
+    margin-top: 2.5rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    padding-bottom: 0.5rem;
+  }
+
+  ul, ol {
+    padding-left: 1.5rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  blockquote {
+    border-left: 3px solid $color-accent;
+    padding-left: 1rem;
+    color: $color-text-muted;
+    font-style: italic;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(15, 23, 42, 0.6);
+  }
+
+  th, td {
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    padding: 0.75rem;
+    text-align: left;
+  }
+}
