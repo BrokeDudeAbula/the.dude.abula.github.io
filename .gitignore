@@ -1,6 +1,14 @@
 _site/
 .jekyll-cache/
 .sass-cache/
+.jekyll-metadata
 .DS_Store
 node_modules/
+vendor/bundle/
+.bundle/
+.env
+.env.*
+log/
+tmp/
 Gemfile.lock
+AGENTS.md
