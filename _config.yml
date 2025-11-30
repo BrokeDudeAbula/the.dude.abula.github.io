@@ -1,8 +1,8 @@
 title: The Dude Abula
 description: >-
   Personal site, blog, and project portfolio for The Dude Abula.
-url: "https://the-dude-abula.github.io"
-baseurl: ""
+url: "https://brokedudeabula.github.io"
+baseurl: "/the.dude.abula.github.io"
 lang: en
 timezone: Asia/Shanghai
 permalink: pretty
