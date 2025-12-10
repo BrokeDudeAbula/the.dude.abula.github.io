@@ -4,7 +4,7 @@
   gap: 1.5rem;
 
   h2 {
-    margin-top: 2.5rem;
+    margin-top: 0.5rem;
     border-bottom: 1px solid rgba(148, 163, 184, 0.2);
     padding-bottom: 0.5rem;
   }
@@ -23,7 +23,7 @@
   }
 
   table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     background-color: rgba(15, 23, 42, 0.6);
   }
@@ -32,5 +32,12 @@
     border: 1px solid rgba(148, 163, 184, 0.12);
     padding: 0.75rem;
     text-align: left;
+  }
+
+  .post-img-half {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
   }
 }

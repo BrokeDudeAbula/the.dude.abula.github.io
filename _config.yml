@@ -1,6 +1,6 @@
-title: The Dude Abula
+title: TheDudeAbula
 description: >-
-  Personal site, blog, and project portfolio for The Dude Abula.
+  Personal site, blog, and project portfolio for TheDudeAbula.
 url: "https://brokedudeabula.github.io"
 baseurl: "/the.dude.abula.github.io"
 lang: en
@@ -21,7 +21,7 @@ defaults:
       type: posts
     values:
       layout: post
-      author: The Dude Abula
+      author: TheDudeAbula
       tags: []
   - scope:
       path: pages
@@ -50,6 +50,6 @@ feed:
   path: feed.xml
 seo:
   type: "Person"
-  name: "The Dude Abula"
+  name: "TheDudeAbula"
   social:
     github: the-dude-abula

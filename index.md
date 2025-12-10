@@ -1,8 +1,8 @@
 ---
 layout: default
-title: The Dude Abula
+title: TheDudeAbula
 hero:
-  title: Hey, I'm The Dude Abula
+  title: Hey, I'm TheDudeAbula
   subtitle: I design, build, and write about delightful digital experiences.
   cta:
     label: View Projects

@@ -1,17 +1,148 @@
 ---
 layout: page
-title: About
-lead: A little more about the person behind The Dude Abula.
+title: 李老八
+lead: 智驾领域  算法工程师  研发工程师
 permalink: /about/
+
 ---
-I craft digital products with a focus on clarity, accessibility, and personality. Over the last few years I've worn hats as a product designer, front-end engineer, mentor, and all-around tinkerer.
 
-When I'm not iterating on product ideas, you'll likely find me experimenting with generative art, curating playlists, or learning a new recipe.
+## 基本信息
+- **Github**: _[https://github.com/BrokeDudeAbula](https://github.com/BrokeDudeAbula)_
+- **E-mail**: _[liyang@siat.ac.cn](mailto:liyang@siat.ac.cn)_
+- **技术栈**: Python \| C++
+- **技术领域**: AI Infra \| 自动驾驶算法部署 \| 异构计算优化
+- **教育经历**:
+  - 武昌理工学院 \| 本科 \| 2014.07 - 2018.07
+  - 武汉科技大学 (中科院联培) \| 硕士 \| 2019.07 - 2022.07
 
-### Principles I Work By
 
-- **Start with people.** Empathy and curiosity lead to the best decisions.
-- **Stay reliable.** Ship when you say you will, and communicate early when you cannot.
-- **Embrace learning.** Every project is a chance to explore new ideas, patterns, or tools.
+## 工作经历
 
-If you want to collaborate or just chat, send a note to [hello@thedudeabula.com](mailto:hello@thedudeabula.com).
+### 小米汽车 \| 自动驾驶部
+- 2022.07-2024.09 算法部-感知系统
+- 2024.09-2025.11 基础架构部-AI平台部
+
+#### 核心职责
+- 主导 **红绿灯DLA部署方案** \| **端到端模型部署方案** 等 4 项 **P0** 级量产项目交付
+- 搭建 Torch->IR->Engine **全链路模型部署流程** , 落地 **端到端模型量产** 及 **Mipilot跨平台部署**
+- 研发 **全链路模型部署框架** \| **模型精度/健康诊断工具** \| **感知仿真回灌工具** 等多类效率工具, 带来人效提升 60%
+- 构建团队 **Wiki知识库** 等 4 项体系化工程, 组织沉淀团队文档 800+ 篇
+
+### 阿里巴巴 \| 斑马智行
+- 2025.11-**至今** AiOS 研发部-算力平台
+
+#### 核心职责
+- 主攻 **座舱多模态大模型量产** 及 **AliOS跨平台部署**
+- 主导 **AliOS大模型推理方案** \| **Qwen系列多模态模型部署加速方案** 等 4 项 **P0** 级量产项目交付
+- 搭建 Nvidia 边缘计算平台 (Orin/Thor) **全链路模型部署流程**
+- 构建团队 **Wiki知识库** \| **团队任务看板**
+
+
+## 重点项目
+
+### 一 \| 量产交付 \| 城市 NOA 项目 \| 红绿灯感知模块研发
+**主要负责项**
+- 设计`TrafficSignalInferApp`框架, 解决多相机输入预处理难题, 检测框截断问题下降90%
+- 实现 `DLA` 推理精度对齐(精度差`<1%`), 释放 `30%` GPU算力
+- 优化 `CPU` 占用40%(`2.74% -> 1.69%`) 内存申请 `50%`(`5694→2637 counts/s`)
+- DynScatter MSDA 等自定义算子实现；Pos2posemb1d(1.56→0.03ms)等多类类算子极致优化；
+
+**主要产出**
+- 技术突破: DLA模型部署 \| 二阶段模型优化 \| Nv 平台算力优化
+- 成果: 专利2项《二阶段交通信号检测部署方案》《多前视图像预处理策略》
+
+### 二 \| 量产交付 \| 端到端项目 \| 端到端模型部署体系
+**主要负责项**
+- 设计 实现 端到端 模块拆分方案, 降低 `30%` 模型迭代成本
+- 实现 `GridSample`/ `MSDA` 等6类算子的跨平台部署方案, 支撑 Nvidia/国产 部署交付
+- 提供 自研模型优化器、AutoFormatCast、ModelHealtyCheck 等模型工具, 提前预警模型风险
+- 打通 ADD SIL 验证流程, 提前预警 精度/耗时/资源占用 3 类交付风险
+
+**主要产出**
+- 技术突破: \| 自定义算子跨平台部署 \| 模型健康检测 \| 模型健康检查
+- 价值: 导出效率提升60%, 支撑 Nvidia/国产 多平台交付
+
+### 三 \| AI infra \| AI模型全栈工具研发
+**主要负责项**
+
+模型侧：
+- 设计实现 `Mipass` 图优化器, 积累团队部署优化经验, 项目应用效果优于主流 `onnxslim` \| `onnxsim` \| `onnx_scripts` \| `ogs` \| 等开源优化器
+- 设计搭建 `Miops` 私有算子库, 实现 `torch` \| `IR` \|`Engine` 算子统一, 提供自定义算子跨平台部署方案
+- 设计实现 `FastQuantTools` 量化工具, 替代 `Nvidia IQ` 量化方案, 自适应插入 `EQ` 量化节点, 量化评估效率提升70%
+- 设计实现 `OnnxVerifier` 精度诊断工具, 实现算子级误差溯源, 精度问题定位耗时从1人日缩短至2小时
+功能侧：
+- 开发 `NodeLauncher` 工具, 精度问题定位人效提高40%
+- 支持 `Adsys/Mipilot` 双标定系统, 仿真准确度达SIL标准
+开发侧：
+- 设计实现 `感知全链路性能摸底` 流程, 自动化输出感知模块 耗时/时延/资源占用 等数据, 辅助团队定位
+
+构建三维问题定位体系, 覆盖 `模型侧`(健康检测、精度对齐) \| `功能侧`(ADD SIL验证) \| `开发侧`(感知全链路性能摸底)\|
+
+**主要产出**
+- 技术突破: `模型健康检测` \| `自定义算子跨平台兼容`
+- 价值: 支撑敏捷开发, 提高 Debug 人效
+
+
+## 体系化建设
+
+### 技术管理
+- **可视化体系**: 建立需求看板跟踪600+任务, 构建Wiki收录800+文档
+- **性能监控**: 设计7项核心指标, 输出100+份周度性能报告
+- **知识共享**: 重启技术分享机制, 组织3场算力平台专题分享
+
+### 工具矩阵
+<table>
+  <thead>
+    <tr>
+      <th>工具类型</th>
+      <th>代表成果</th>
+      <th>效能提升</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>仿真工具链</td>
+      <td>感知本地仿真系统</td>
+      <td>50%</td>
+    </tr>
+    <tr>
+      <td>模型部署工具</td>
+      <td>端到端一键部署体系</td>
+      <td>60%</td>
+    </tr>
+    <tr>
+      <td>模型调试工具</td>
+      <td>模型健康检测套件</td>
+      <td>70%</td>
+    </tr>
+    <tr>
+      <td>量化评估工具</td>
+      <td>一键EQ量化工具</td>
+      <td>45%</td>
+    </tr>
+  </tbody>
+</table>
+
+
+## 技术能力
+**硬核技术栈**
+- 异构计算: DLA/GPU部署优化 \| TRT Plugin 开发/优化 \| Kernel级性能调优
+- 算法工程: 感知模型部署 \| 模型推理Pipeline \| 预处理/后处理/多输出融合
+- 工具链: 模型量化/诊断/校准 \| 自动化测试框架 \| 跨平台编译方案
+
+**方法论沉淀**
+- 首创"三层标定架构"(App-Modules-Unit)
+- 构建"四维性能评估体系"(时延/耗时/Freshness/ProcessFrame)
+- 提出"敏捷交付三原则"(文档先行 自动化验证 需求收敛)
+
+## 荣誉与专利
+- **专利**:
+  《一种二阶段交通信号检测模型部署方案》
+  《一种基于多前视图像输入的信号灯模型图像预处理策略》
+- **战功**: 2024年自动驾驶部优秀项目奖(红绿灯模块)
+
+## 价值观
+**坚韧担当**: 攻克 DLA 部署技术难关, 定位并推动 NV 团队解决 Orin 平台底层 Bug
+**极致效率**: 研发4类自动化工具, 累计节省2000+人时
+**体系思维**: 构建4大技术体系, 带动团队研发效能提升300%
+**持续创新**: 自学 LLM 基础 \| SGLang/vLLM/MLC 部署等 SOTA 技术栈; 熟练掌握 Prompt 工程 \| Agentic Coding \| MCP 开发 等前沿效能工具
