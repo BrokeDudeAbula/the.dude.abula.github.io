@@ -45,6 +45,6 @@ hero:
   <div class="home-card">
     <h3>Say Hello</h3>
     <p>I'm always happy to chat about new ideas, collaborations, or anything interesting.</p>
-    <a class="button" href="mailto:hello@thedudeabula.com">Email me</a>
+    <a class="button" href="mailto:liyang@siat.ac.cn">Email me</a>
   </div>
 </section>
