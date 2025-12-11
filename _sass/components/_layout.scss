@@ -140,7 +140,8 @@
 }
 
 .post {
-  max-width: 720px;
+  width: 100%;
+  max-width: $container-width;
   margin: 0 auto;
 
   .post-header {
@@ -150,17 +151,48 @@
   .post-meta {
     color: $color-text-muted;
   }
+
+  .post-body {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+
+  .post-body pre {
+    max-width: 100%;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: auto;
+  }
 }
 
 .post-navigation {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 3rem;
   gap: 1rem;
+
+  .post-nav-left,
+  .post-nav-right {
+    flex: 1;
+  }
+
+  .post-nav-left {
+    text-align: left;
+  }
+
+  .post-nav-right {
+    text-align: right;
+  }
 
   a {
     color: $color-text;
     font-weight: 500;
+  }
+
+  .button {
+    color: #0f172a;
   }
 }
 

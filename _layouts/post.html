@@ -16,10 +16,14 @@ layout: default
   </div>
 </article>
 <section class="container post-navigation">
-  {% if page.previous.url %}
-  <a class="post-previous" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
-  {% endif %}
-  {% if page.next.url %}
-  <a class="post-next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
-  {% endif %}
+  <div class="post-nav-left">
+    {% if page.previous.url %}
+    <a class="post-previous button" href="{{ page.previous.url | relative_url }}">&larr; {{ page.previous.title }}</a>
+    {% endif %}
+  </div>
+  <div class="post-nav-right">
+    {% if page.next.url %}
+    <a class="post-next button" href="{{ page.next.url | relative_url }}">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+  </div>
 </section>
