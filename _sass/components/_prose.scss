@@ -3,6 +3,12 @@
   display: grid;
   gap: 1.5rem;
 
+  p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    word-break: break-word;
+  }
+
   h2 {
     margin-top: 0.5rem;
     border-bottom: 1px solid rgba(148, 163, 184, 0.2);

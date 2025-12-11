@@ -3,7 +3,7 @@ description: >-
   Personal site, blog, and project portfolio for TheDudeAbula.
 url: "https://brokedudeabula.github.io"
 baseurl: "/the.dude.abula.github.io"
-lang: en
+lang: zh-CN
 timezone: Asia/Shanghai
 permalink: pretty
 collections_dir: content
