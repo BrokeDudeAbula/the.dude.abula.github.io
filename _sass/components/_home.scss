@@ -1,4 +1,5 @@
 .home-overview {
+  margin-top: 2.5rem;
   margin-bottom: 3rem;
 
   p {
@@ -42,5 +43,16 @@
   span {
     color: $color-text-muted;
     font-size: 0.875rem;
+  }
+
+  .excerpt {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.4;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 3rem;
   }
 }

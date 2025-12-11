@@ -4,9 +4,6 @@ title: TheDudeAbula
 hero:
   title: Hey, I'm TheDudeAbula
   subtitle: I design, build, and write about delightful digital experiences.
-  cta:
-    label: View Projects
-    url: /projects/
 ---
 <section class="container home-overview">
   <h2>What I Do</h2>
@@ -24,10 +21,11 @@ hero:
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <span>{{ post.date | date: '%b %d, %Y' }}</span>
+        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</p>
       </li>
       {% endfor %}
     </ul>
-    <a class="button" href="/blog/">Browse all posts</a>
+    <a class="button" href="{{ '/blog/' | relative_url }}">Browse all posts</a>
   </div>
   <div class="home-card">
     <h3>Featured Projects</h3>
@@ -40,7 +38,7 @@ hero:
       </li>
       {% endfor %}
     </ul>
-    <a class="button" href="/projects/">See what I'm building</a>
+    <a class="button" href="{{ '/projects/' | relative_url }}">See what I'm building</a>
   </div>
   <div class="home-card">
     <h3>Say Hello</h3>
