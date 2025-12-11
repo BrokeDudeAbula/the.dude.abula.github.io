@@ -1,12 +1,15 @@
-- name: Design System Starter
-  summary: UI foundations and tooling for fast, consistent prototyping.
-  url: https://github.com/the-dude-abula/design-system-starter
+- name: taw-ys-zsh
+  summary: Zsh theme which improved based on taw-ys-zsh
+  url: https://github.com/BrokeDudeAbula/taw-ys-venv
+  date: 2024-12-10
   featured: true
-- name: Personal Knowledge Garden
-  summary: A digital garden that connects notes with visual graphs.
-  url: https://github.com/the-dude-abula/knowledge-garden
+- name: the.dude.abula.github.io
+  summary: A github.io web for TheDudeAbula
+  url: https://github.com/BrokeDudeAbula/the.dude.abula.github.io
+  date: 2025-Sep-24
   featured: true
-- name: Remote WFH Dashboard
-  summary: Aggregates productivity signals for distributed teams.
-  url: https://github.com/the-dude-abula/wfh-dashboard
-  featured: true
+# - name: Remote WFH Dashboard
+#   summary: Aggregates productivity signals for distributed teams.
+#   url: https://github.com/the-dude-abula/wfh-dashboard
+#   date: YYYY-MM-DD
+#   featured: true

@@ -34,7 +34,12 @@ hero:
       {% for project in featured limit:3 %}
       <li>
         <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.name }}</a>
-        <span>{{ project.summary }}</span>
+        {% if project.date %}
+        <span>{{ project.date | date: '%b %d, %Y' }}</span>
+        {% else %}
+        <span>Date not available</span>
+        {% endif %}
+        <p class="excerpt">{{ project.summary }}</p>
       </li>
       {% endfor %}
     </ul>
