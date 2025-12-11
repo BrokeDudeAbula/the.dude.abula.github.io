@@ -150,14 +150,6 @@
   .post-meta {
     color: $color-text-muted;
   }
-
-  .tag {
-    background-color: rgba(56, 189, 248, 0.2);
-    color: $color-accent;
-    border-radius: 999px;
-    padding: 0.125rem 0.75rem;
-    font-size: 0.875rem;
-  }
 }
 
 .post-navigation {
@@ -188,6 +180,16 @@
     background-color: $color-accent-dark;
     transform: translateY(-2px);
   }
+}
+
+.tag {
+  background-color: rgba(56, 189, 248, 0.2);
+  color: $color-accent;
+  border-radius: 999px;
+  padding: 0.125rem 0.75rem;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 @media (max-width: 720px) {

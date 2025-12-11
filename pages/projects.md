@@ -4,14 +4,18 @@ title: Projects
 lead: Curated work across product, design systems, and creative coding.
 permalink: /projects/
 ---
-<section class="projects-grid">
+<div class="post-list">
   {% for project in site.data.projects %}
-  <article class="project-card">
+  <article class="post-card">
     <h2><a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.name }}</a></h2>
     <p>{{ project.summary }}</p>
     {% if project.stack %}
-    <p class="project-stack">Stack: {{ project.stack | join: ', ' }}</p>
+    {% assign first_tag = project.stack | first %}
+    <div class="project-tags" aria-label="Tech stack">
+      <span class="tag">{{ first_tag }}</span>
+    </div>
     {% endif %}
+    <a class="read-more" href="{{ project.url }}" target="_blank" rel="noopener">View project →</a>
   </article>
   {% endfor %}
-</section>
+</div>
