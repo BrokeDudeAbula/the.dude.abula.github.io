@@ -1,0 +1,144 @@
+#game-wrapper {
+  background: $color-surface;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: $border-radius-base;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+#game-info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: $color-surface-alt;
+  border-radius: $border-radius-base;
+}
+
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.score-label {
+  color: $color-text-muted;
+  font-size: 0.875rem;
+}
+
+.score-value {
+  color: $color-accent;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: $font-stack-mono;
+}
+
+#snake-game {
+  display: block;
+  margin: 0 auto 1.5rem;
+  border: 2px solid rgba(148, 163, 184, 0.2);
+  border-radius: $border-radius-base;
+  max-width: 100%;
+  height: auto;
+}
+
+#game-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.game-btn {
+  padding: 0.75rem 2rem;
+  background-color: $color-accent;
+  color: #0f172a;
+  font-weight: 600;
+  border-radius: $border-radius-base;
+  border: none;
+  cursor: pointer;
+  transition: background-color $transition-base, transform $transition-base;
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-dark;
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+#game-message {
+  min-height: 60px;
+  padding: 1rem;
+  color: $color-text;
+  font-size: 0.875rem;
+}
+
+.game-over {
+  h3 {
+    color: $color-accent;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin: 0.25rem 0;
+    color: $color-text-muted;
+  }
+}
+
+.game-instructions {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: $color-surface;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: $border-radius-base;
+
+  h3 {
+    color: $color-accent;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0.5rem 0;
+      color: $color-text;
+      line-height: 1.6;
+
+      strong {
+        color: $color-accent;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  #game-wrapper {
+    padding: 1.5rem;
+  }
+
+  #snake-game {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .game-instructions {
+    padding: 1rem;
+  }
+}
