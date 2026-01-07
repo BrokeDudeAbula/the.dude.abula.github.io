@@ -11,6 +11,9 @@ collections:
   posts:
     output: true
     permalink: /blog/:slug/
+  games:
+    output: true
+    permalink: /games/:slug/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -21,6 +24,13 @@ defaults:
       type: posts
     values:
       layout: post
+      author: TheDudeAbula
+      tags: []
+  - scope:
+      path: ""
+      type: games
+    values:
+      layout: game
       author: TheDudeAbula
       tags: []
   - scope:

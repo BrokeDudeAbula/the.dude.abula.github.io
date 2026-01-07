@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<article class="game container">
+  <header class="game-header">
+    <p class="game-meta">{{ page.date | date: '%B %d, %Y' }}{% if page.tags and page.tags.size > 0 %} ·
+      <span class="game-tags">{% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %} {% endunless %}{% endfor %}</span>{% endif %}
+    </p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+    <p class="lead">{{ page.description | strip_html }}</p>
+    {% endif %}
+  </header>
+  <div class="game-body">
+    {{ content }}
+  </div>
+</article>
+<section class="container game-navigation">
+  <div class="game-nav-left">
+    {% if page.previous.url %}
+    <a class="game-previous button" href="{{ page.previous.url | relative_url }}">👈 {{ page.previous.title }}</a>
+    {% endif %}
+  </div>
+  <div class="game-nav-center">
+    <a class="button" href="{{ '/games/' | relative_url }}">🎮 游戏列表</a>
+  </div>
+  <div class="game-nav-right">
+    {% if page.next.url %}
+    <a class="game-next button" href="{{ page.next.url | relative_url }}">{{ page.next.title }} 👉</a>
+    {% endif %}
+  </div>
+</section>
