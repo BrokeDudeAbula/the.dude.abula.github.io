@@ -35,7 +35,8 @@
   font-family: $font-stack-mono;
 }
 
-#snake-game {
+#snake-game,
+#game2048 {
   display: block;
   margin: 0 auto 1.5rem;
   border: 2px solid rgba(148, 163, 184, 0.2);
@@ -238,7 +239,8 @@
     padding: 1.5rem;
   }
 
-  #snake-game {
+  #snake-game,
+  #game2048 {
     width: 100%;
     max-width: 320px;
   }
