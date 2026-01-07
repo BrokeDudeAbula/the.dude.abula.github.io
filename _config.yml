@@ -6,7 +6,6 @@ baseurl: "/the.dude.abula.github.io"
 lang: zh-CN
 timezone: Asia/Shanghai
 permalink: pretty
-collections_dir: content
 collections:
   posts:
     output: true
