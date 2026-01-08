@@ -13,6 +13,9 @@
     brickPadding: 8,
     brickOffsetTop: 50,
     brickOffsetLeft: 35,
+    // 图片砖块配置
+    useImageBricks: true,  // 设置为 true 启用图片砖块
+    backgroundImage: (window.siteBaseurl || '') + '/assets/img/background.png',  // 背景图片路径（推荐 3:1 比例，如 1500x500px）
     colors: {
       background: '#111827',
       paddle: '#38bdf8',
@@ -35,6 +38,8 @@
   let rightPressed = false;
   let leftPressed = false;
   let animationId = null;
+  let backgroundImage = new Image();
+  let isImageLoaded = false;
 
   // DOM 元素
   const canvas = document.getElementById('breakout-game');
@@ -84,6 +89,25 @@
   function initCanvas() {
     canvas.width = CONFIG.canvasWidth;
     canvas.height = CONFIG.canvasHeight;
+  }
+
+  // 加载背景图片
+  function loadBackgroundImage() {
+    if (CONFIG.useImageBricks) {
+      backgroundImage.src = CONFIG.backgroundImage;
+      backgroundImage.onload = () => {
+        isImageLoaded = true;
+        console.log('背景图片加载成功，路径：', CONFIG.backgroundImage);
+        // 图片加载完成后重新绘制砖块
+        if (!isGameRunning) {
+          drawBricks();
+        }
+      };
+      backgroundImage.onerror = () => {
+        console.warn('背景图片加载失败，将使用纯色砖块');
+        isImageLoaded = false;
+      };
+    }
   }
 
   // 初始化游戏
@@ -155,6 +179,52 @@
 
   // 绘制砖块
   function drawBricks() {
+    // 根据配置选择绘制模式
+    if (CONFIG.useImageBricks && isImageLoaded) {
+      drawImageBricks();
+    } else {
+      drawColorBricks();
+    }
+  }
+
+  // 绘制图片砖块
+  function drawImageBricks() {
+    // 计算砖块区域实际尺寸
+    const bricksAreaWidth = CONFIG.brickColumnCount * brickWidth + (CONFIG.brickColumnCount - 1) * CONFIG.brickPadding;
+    const bricksAreaHeight = CONFIG.brickRowCount * brickHeight + (CONFIG.brickRowCount - 1) * CONFIG.brickPadding;
+
+    for (let c = 0; c < CONFIG.brickColumnCount; c++) {
+      for (let r = 0; r < CONFIG.brickRowCount; r++) {
+        if (bricks[c][r].status === 1) {
+          const brickX = c * (brickWidth + CONFIG.brickPadding) + CONFIG.brickOffsetLeft;
+          const brickY = r * (brickHeight + CONFIG.brickPadding) + CONFIG.brickOffsetTop;
+          bricks[c][r].x = brickX;
+          bricks[c][r].y = brickY;
+
+          // 计算原图中对应的位置（使用 object-fit: cover 逻辑）
+          const sourceX = (c / CONFIG.brickColumnCount) * backgroundImage.width;
+          const sourceY = (r / CONFIG.brickRowCount) * backgroundImage.height;
+          const sourceWidth = backgroundImage.width / CONFIG.brickColumnCount;
+          const sourceHeight = backgroundImage.height / CONFIG.brickRowCount;
+
+          // 绘制图片的对应部分
+          ctx.save();
+          ctx.beginPath();
+          ctx.roundRect(brickX, brickY, brickWidth, brickHeight, 4);
+          ctx.clip();
+          ctx.drawImage(
+            backgroundImage,
+            sourceX, sourceY, sourceWidth, sourceHeight,  // 源矩形
+            brickX, brickY, brickWidth, brickHeight       // 目标矩形
+          );
+          ctx.restore();
+        }
+      }
+    }
+  }
+
+  // 绘制纯色砖块
+  function drawColorBricks() {
     for (let c = 0; c < CONFIG.brickColumnCount; c++) {
       for (let r = 0; r < CONFIG.brickRowCount; r++) {
         if (bricks[c][r].status === 1) {
@@ -191,13 +261,48 @@
       for (let r = 0; r < CONFIG.brickRowCount; r++) {
         const b = bricks[c][r];
         if (b.status === 1) {
+          // AABB 碰撞检测（考虑球的半径）
+          const ballLeft = ball.x - CONFIG.ballRadius;
+          const ballRight = ball.x + CONFIG.ballRadius;
+          const ballTop = ball.y - CONFIG.ballRadius;
+          const ballBottom = ball.y + CONFIG.ballRadius;
+
+          // 检查是否碰撞
           if (
-            ball.x > b.x &&
-            ball.x < b.x + brickWidth &&
-            ball.y > b.y &&
-            ball.y < b.y + brickHeight
+            ballRight > b.x &&
+            ballLeft < b.x + brickWidth &&
+            ballBottom > b.y &&
+            ballTop < b.y + brickHeight
           ) {
-            ball.dy = -ball.dy;
+            // 计算碰撞深度
+            const overlapLeft = ballRight - b.x;
+            const overlapRight = (b.x + brickWidth) - ballLeft;
+            const overlapTop = ballBottom - b.y;
+            const overlapBottom = (b.y + brickHeight) - ballTop;
+
+            // 找出最小重叠方向
+            const minOverlap = Math.min(overlapLeft, overlapRight, overlapTop, overlapBottom);
+
+            // 根据最小重叠方向反弹
+            if (minOverlap === overlapTop) {
+              // 从上方撞击
+              ball.y = b.y - CONFIG.ballRadius; // 修正位置
+              ball.dy = -Math.abs(ball.dy); // 向上反弹
+            } else if (minOverlap === overlapBottom) {
+              // 从下方撞击
+              ball.y = b.y + brickHeight + CONFIG.ballRadius; // 修正位置
+              ball.dy = Math.abs(ball.dy); // 向下反弹
+            } else if (minOverlap === overlapLeft) {
+              // 从左侧撞击
+              ball.x = b.x - CONFIG.ballRadius; // 修正位置
+              ball.dx = -Math.abs(ball.dx); // 向左反弹
+            } else if (minOverlap === overlapRight) {
+              // 从右侧撞击
+              ball.x = b.x + brickWidth + CONFIG.ballRadius; // 修正位置
+              ball.dx = Math.abs(ball.dx); // 向右反弹
+            }
+
+            // 消除砖块
             b.status = 0;
             score += 10 * (CONFIG.brickRowCount - r);
             updateScore();
@@ -213,6 +318,9 @@
             if (checkWin()) {
               gameWin();
             }
+
+            // 每次只处理一个碰撞，避免多重碰撞
+            return;
           }
         }
       }
@@ -246,25 +354,45 @@
     ball.y += ball.dy;
 
     // 左右墙壁碰撞
-    if (ball.x + ball.dx > CONFIG.canvasWidth - CONFIG.ballRadius || ball.x + ball.dx < CONFIG.ballRadius) {
-      ball.dx = -ball.dx;
+    if (ball.x + CONFIG.ballRadius > CONFIG.canvasWidth) {
+      ball.x = CONFIG.canvasWidth - CONFIG.ballRadius;
+      ball.dx = -Math.abs(ball.dx);
+    } else if (ball.x - CONFIG.ballRadius < 0) {
+      ball.x = CONFIG.ballRadius;
+      ball.dx = Math.abs(ball.dx);
     }
 
     // 顶部碰撞
-    if (ball.y + ball.dy < CONFIG.ballRadius) {
-      ball.dy = -ball.dy;
-    } else if (ball.y + ball.dy > CONFIG.canvasHeight - CONFIG.ballRadius) {
+    if (ball.y - CONFIG.ballRadius < 0) {
+      ball.y = CONFIG.ballRadius;
+      ball.dy = Math.abs(ball.dy);
+    } else if (ball.y + CONFIG.ballRadius > canvas.height - 10) {
       // 底部碰撞检测
-      if (ball.x > paddle.x && ball.x < paddle.x + CONFIG.paddleWidth) {
-        // 根据碰撞位置改变反弹角度
-        const hitPoint = ball.x - (paddle.x + CONFIG.paddleWidth / 2);
-        const normalizedHit = hitPoint / (CONFIG.paddleWidth / 2);
-        const angle = normalizedHit * (Math.PI / 3); // 最大 60 度
+      const paddleTop = paddle.y;
+      const paddleBottom = paddle.y + CONFIG.paddleHeight;
 
-        const speed = Math.sqrt(ball.dx * ball.dx + ball.dy * ball.dy);
-        ball.dx = speed * Math.sin(angle);
-        ball.dy = -speed * Math.cos(angle);
-      } else {
+      // 检查球是否与挡板碰撞（考虑球的半径）
+      if (
+        ball.y + CONFIG.ballRadius >= paddleTop &&
+        ball.y - CONFIG.ballRadius <= paddleBottom &&
+        ball.x >= paddle.x - CONFIG.ballRadius &&
+        ball.x <= paddle.x + CONFIG.paddleWidth + CONFIG.ballRadius
+      ) {
+        // 只有当球向下移动时才反弹
+        if (ball.dy > 0) {
+          // 修正球的位置到挡板上方
+          ball.y = paddleTop - CONFIG.ballRadius;
+
+          // 根据碰撞位置改变反弹角度
+          const hitPoint = ball.x - (paddle.x + CONFIG.paddleWidth / 2);
+          const normalizedHit = hitPoint / (CONFIG.paddleWidth / 2);
+          const angle = normalizedHit * (Math.PI / 3); // 最大 60 度
+
+          const speed = Math.sqrt(ball.dx * ball.dx + ball.dy * ball.dy);
+          ball.dx = speed * Math.sin(angle);
+          ball.dy = -speed * Math.cos(angle);
+        }
+      } else if (ball.y - CONFIG.ballRadius > canvas.height) {
         // 球掉落
         lives--;
         updateLives();
@@ -275,7 +403,7 @@
         } else {
           // 重置球的位置
           ball.x = CONFIG.canvasWidth / 2;
-          ball.y = CONFIG.canvasHeight - 30;
+          ball.y = canvas.height - 30;
           ball.dx = CONFIG.ballSpeed * (Math.random() > 0.5 ? 1 : -1);
           ball.dy = -CONFIG.ballSpeed;
           paddle.x = (CONFIG.canvasWidth - CONFIG.paddleWidth) / 2;
@@ -446,6 +574,7 @@
 
   // 初始化
   initCanvas();
+  loadBackgroundImage();
   initGame();
   drawBricks();
   drawPaddle();
