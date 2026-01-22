@@ -37,13 +37,71 @@
 
 #snake-game,
 #game2048,
-#breakout-game {
+#breakout-game,
+#tetris-game {
   display: block;
   margin: 0 auto 1.5rem;
   border: 2px solid rgba(148, 163, 184, 0.2);
   border-radius: $border-radius-base;
   max-width: 100%;
   height: auto;
+}
+
+#game-canvases {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+#side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#next-piece-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  background: $color-surface-alt;
+  border-radius: $border-radius-base;
+}
+
+#theme-switch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  background: $color-surface-alt;
+  border-radius: $border-radius-base;
+}
+
+.theme-name {
+  color: $color-text-muted;
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+
+.game-btn.small {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.preview-label {
+  color: $color-text-muted;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+#next-piece {
+  display: block;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 4px;
 }
 
 #game-controls {
@@ -241,9 +299,32 @@
   }
 
   #snake-game,
-  #game2048 {
+  #game2048,
+  #breakout-game,
+  #tetris-game {
     width: 100%;
     max-width: 320px;
+  }
+
+  #game-canvases {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #next-piece-container,
+  #theme-switch-container {
+    margin-top: 0.5rem;
+    padding: 0.25rem;
+  }
+
+  #side-panel {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  #next-piece {
+    width: 60px;
+    height: 60px;
   }
 
   .game-instructions {
