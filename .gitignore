@@ -13,3 +13,5 @@ tmp/
 Gemfile.lock
 
 prompt.md
+
+_migration_backup/

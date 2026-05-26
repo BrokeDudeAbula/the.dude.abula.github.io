@@ -283,10 +283,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 17:46:05 CST
+- [x] 完成时间：2026-05-26 17:58:34 CST
+- [x] 遇到的问题：`bundle exec jekyll serve --baseurl ''` 首次启动时因 `_site/CLAUDE.md` 符号链接残留报 `File exists`；已确认根因是 tracked `CLAUDE.md -> AGENTS.md` 未被排除，随后将 `CLAUDE.md` 加入 `_config.yml exclude`，清理 ignored 构建产物后 build/serve 均通过。
+- [x] 备注：已从 `/tmp/chirpy-starter` 引入 M2 必需骨架，未复制 `.github/workflows/pages-deploy.yml`；旧主题源已备份到 ignored 的 `_migration_backup/old-site/`；`bundle install` 成功，`bundle exec jekyll build --trace` 成功；短时启动 `http://127.0.0.1:4000/` 并用 `curl` 验证首页、Categories、Tags、Archives、About 均返回 200，随后已停止服务。
 ```
 
 ---
