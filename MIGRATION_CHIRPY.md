@@ -334,10 +334,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 19:00:00 +0800
+- [x] 完成时间：2026-05-26 19:03:33 +0800
+- [x] 遇到的问题：无阻塞；三篇文章缺少 `date` 和 `categories`，已按文件日期补齐 Chirpy 所需 front matter。`bundle exec jekyll build --trace` 成功且无 warning。
+- [x] 备注：未修改正文含义；自我介绍文章保留 `{{ '/assets/img/IMG_4693.JPG' | relative_url }}`，目标文件存在。短时 serve 验证 `/`、任一文章页、`/categories/`、`/tags/`、`/archives/` 均返回 200，服务已停止。
 ```
 
 ---
