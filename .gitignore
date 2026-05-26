@@ -12,7 +12,3 @@ log/
 tmp/
 Gemfile.lock
 
-# Codex
-.codex/
-AGENTS.md
-IFLOW.md

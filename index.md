@@ -46,8 +46,11 @@ hero:
     <a class="button" href="{{ '/projects/' | relative_url }}">See what I'm building</a>
   </div>
   <div class="home-card">
-    <h3>Say Hello</h3>
-    <p>I'm always happy to chat about new ideas, collaborations, or anything interesting.</p>
-    <a class="button" href="mailto:liyang@siat.ac.cn">Email me</a>
+    <h3>GitHub Activity</h3>
+    <div class="github-stats">
+      <img src="https://github-readme-stats.vercel.app/api?username=the-dude-abula&show_icons=true&theme=transparent&hide_border=true" alt="GitHub Stats" />
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=the-dude-abula&theme=transparent&hide_border=true&layout=compact" alt="Top Languages" />
+    </div>
+    <a class="button" href="https://github.com/the-dude-abula" target="_blank" rel="noopener">View Profile</a>
   </div>
 </section>

@@ -69,3 +69,15 @@
     min-height: 3rem;
   }
 }
+
+.github-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius-base;
+  }
+}
