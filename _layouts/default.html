@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   {% include head.html %}
-  <body class="layout-{{ page.layout | default: 'default' }}">
+  <body class="layout-{{ page.layout | default: 'default' }}{% if page.hero %} has-hero{% endif %}">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     {% include header.html %}
     <main id="main-content" class="page-content">

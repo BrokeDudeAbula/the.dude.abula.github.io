@@ -1,8 +1,9 @@
 body {
   font-family: $font-stack-base;
-  background: radial-gradient(circle at top, lighten($color-background, 5%), $color-background);
+  background: $color-background;
   color: $color-text;
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0;
 }
 
 a {
@@ -18,8 +19,8 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
+  line-height: 1.18;
+  margin-bottom: 0.625rem;
   color: inherit;
 }
 
@@ -41,16 +42,17 @@ pre {
 }
 
 code {
-  background-color: #1e3a5f;
+  background-color: #e8eeeb;
+  color: $color-text;
   padding: 0.2rem 0.35rem;
-  border: 1px solid rgba(148, 163, 184, 0.35);
+  border: 1px solid $color-border;
 }
 
 pre {
-  background-color: #0b1223;
+  background-color: #edf2ef;
   padding: 1rem 1.25rem;
   overflow-x: auto;
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  border: 1px solid $color-border;
 
   code {
     background: none;

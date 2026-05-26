@@ -6,12 +6,12 @@
     gridSize: 3,
     cellPadding: 10,
     colors: {
-      background: '#111827',
-      grid: '#374151',
-      x: '#38bdf8',
-      o: '#f472b6',
-      winningLine: '#10b981',
-      text: '#ffffff'
+      background: '#ffffff',
+      grid: '#d4dfda',
+      x: '#55796f',
+      o: '#6f7f8d',
+      winningLine: '#7d936d',
+      text: '#26312f'
     }
   };
 

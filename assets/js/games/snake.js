@@ -7,11 +7,11 @@
     initialSpeed: 150,
     speedIncrease: 2,
     colors: {
-      snakeHead: '#38bdf8',
-      snakeBody: '#0ea5e9',
-      food: '#ef4444',
-      background: '#111827',
-      grid: '#1f2937'
+      snakeHead: '#55796f',
+      snakeBody: '#8ba397',
+      food: '#6f7f8d',
+      background: '#ffffff',
+      grid: '#e8eeeb'
     }
   };
 

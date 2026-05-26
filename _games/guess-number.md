@@ -67,12 +67,12 @@ tags:
 
   #hint-display {
     font-size: 1.1rem;
-    color: #e2e8f0;
+    color: #26312f;
     margin-bottom: 15px;
     padding: 15px;
-    background: #1e293b;
-    border-radius: 10px;
-    border: 2px solid #334155;
+    background: #e8eeeb;
+    border-radius: 8px;
+    border: 1px solid rgba(85, 121, 111, 0.22);
   }
 
   #result-display {
@@ -86,15 +86,15 @@ tags:
   }
 
   #result-display.hint-high {
-    color: #f87171;
+    color: #6f7f8d;
   }
 
   #result-display.hint-low {
-    color: #60a5fa;
+    color: #55796f;
   }
 
   #result-display.correct {
-    color: #10b981;
+    color: #355b52;
   }
 
   #input-section {
@@ -107,55 +107,55 @@ tags:
     flex: 1;
     padding: 12px 16px;
     font-size: 1.1rem;
-    border: 2px solid #334155;
-    border-radius: 8px;
-    background: #1e293b;
-    color: #ffffff;
+    border: 1px solid rgba(85, 121, 111, 0.24);
+    border-radius: 6px;
+    background: #ffffff;
+    color: #26312f;
     outline: none;
     transition: border-color 0.2s;
   }
 
   #guess-input:focus {
-    border-color: #3b82f6;
+    border-color: #55796f;
   }
 
   #guess-input::placeholder {
-    color: #64748b;
+    color: #68736f;
   }
 
   #guess-btn {
     padding: 12px 24px;
     font-size: 1rem;
-    background: #3b82f6;
-    color: white;
+    background: #55796f;
+    color: #ffffff;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s;
   }
 
   #guess-btn:hover {
-    background: #2563eb;
+    background: #355b52;
   }
 
   #guess-btn:disabled {
-    background: #475569;
+    background: #b9c7c2;
     cursor: not-allowed;
   }
 
   #history-section {
-    background: #1e293b;
-    border-radius: 10px;
+    background: #ffffff;
+    border-radius: 8px;
     padding: 15px;
-    border: 2px solid #334155;
+    border: 1px solid rgba(85, 121, 111, 0.22);
   }
 
   #history-title {
     font-size: 0.9rem;
-    color: #94a3b8;
+    color: #68736f;
     margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0;
   }
 
   #history-list {
@@ -175,21 +175,21 @@ tags:
   }
 
   .history-item.hint-high {
-    background: rgba(248, 113, 113, 0.2);
-    color: #f87171;
-    border: 1px solid rgba(248, 113, 113, 0.3);
+    background: rgba(111, 127, 141, 0.14);
+    color: #4f6676;
+    border: 1px solid rgba(111, 127, 141, 0.24);
   }
 
   .history-item.hint-low {
-    background: rgba(96, 165, 250, 0.2);
-    color: #60a5fa;
-    border: 1px solid rgba(96, 165, 250, 0.3);
+    background: rgba(85, 121, 111, 0.14);
+    color: #355b52;
+    border: 1px solid rgba(85, 121, 111, 0.24);
   }
 
   .history-item.correct {
-    background: rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: rgba(139, 163, 151, 0.18);
+    color: #355b52;
+    border: 1px solid rgba(85, 121, 111, 0.28);
   }
 
   @keyframes fadeIn {

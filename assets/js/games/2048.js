@@ -6,22 +6,22 @@
     canvasHeight: 400,
     animationDuration: 150, // 动画持续时间（毫秒）
     colors: {
-      background: '#111827',
-      grid: '#1f2937',
-      empty: '#374151',
-      2: '#38bdf8',
-      4: '#0ea5e9',
-      8: '#0284c7',
-      16: '#0369a1',
-      32: '#075985',
-      64: '#0c4a6e',
-      128: '#f472b6',
-      256: '#ec4899',
-      512: '#db2777',
-      1024: '#be185d',
-      2048: '#9d174d',
+      background: '#d4dfda',
+      grid: '#c5d3cd',
+      empty: '#f4f7f5',
+      2: '#e8eeeb',
+      4: '#d4dfda',
+      8: '#b8c7c2',
+      16: '#a7b7b1',
+      32: '#8ba397',
+      64: '#55796f',
+      128: '#7f9eb2',
+      256: '#6f7f8d',
+      512: '#4f6676',
+      1024: '#3f5665',
+      2048: '#355b52',
       textLight: '#ffffff',
-      textDark: '#0f172a'
+      textDark: '#26312f'
     }
   };
 

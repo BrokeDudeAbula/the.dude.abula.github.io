@@ -1,6 +1,6 @@
 #game-wrapper {
   background: $color-surface;
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border: 1px solid $color-border;
   border-radius: $border-radius-base;
   padding: 2rem;
   margin: 2rem auto;
@@ -41,7 +41,7 @@
 #tetris-game {
   display: block;
   margin: 0 auto 1.5rem;
-  border: 2px solid rgba(148, 163, 184, 0.2);
+  border: 2px solid $color-border;
   border-radius: $border-radius-base;
   max-width: 100%;
   height: auto;
@@ -100,7 +100,7 @@
 
 #next-piece {
   display: block;
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border: 1px solid $color-border;
   border-radius: 4px;
 }
 
@@ -114,20 +114,19 @@
 .game-btn {
   padding: 0.75rem 2rem;
   background-color: $color-accent;
-  color: #0f172a;
+  color: $color-surface;
   font-weight: 600;
   border-radius: $border-radius-base;
   border: none;
   cursor: pointer;
-  transition: background-color $transition-base, transform $transition-base;
+  transition: background-color $transition-base;
 
   &:hover:not(:disabled) {
     background-color: $color-accent-dark;
-    transform: translateY(-2px);
   }
 
   &:active:not(:disabled) {
-    transform: translateY(0);
+    background-color: $color-accent-dark;
   }
 
   &:disabled {
@@ -161,7 +160,7 @@
   margin: 2rem auto;
   padding: 1.5rem;
   background: $color-surface;
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border: 1px solid $color-border;
   border-radius: $border-radius-base;
 
   h3 {
@@ -200,14 +199,14 @@
 
 .game-card {
   background-color: $color-surface;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: $border-radius-base;
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  transition: transform $transition-base, border-color $transition-base;
+  border: 1px solid $color-border;
+  transition: background-color $transition-base, border-color $transition-base;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(56, 189, 248, 0.35);
+    background-color: #fbfcfb;
+    border-color: $color-border-strong;
   }
 
   h2 {
@@ -289,7 +288,7 @@
   }
 
   .button {
-    color: #0f172a;
+    color: $color-surface;
   }
 }
 

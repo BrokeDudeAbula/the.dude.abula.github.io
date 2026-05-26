@@ -17,11 +17,11 @@
     useImageBricks: true,  // 设置为 true 启用图片砖块
     backgroundImage: (window.siteBaseurl || '') + '/assets/img/background.png',  // 背景图片路径（推荐 3:1 比例，如 1500x500px）
     colors: {
-      background: '#111827',
-      paddle: '#38bdf8',
-      ball: '#f472b6',
-      bricks: ['#38bdf8', '#0ea5e9', '#0284c7', '#0369a1', '#075985'],
-      text: '#ffffff'
+      background: '#ffffff',
+      paddle: '#55796f',
+      ball: '#6f7f8d',
+      bricks: ['#e8eeeb', '#b8c7c2', '#8ba397', '#55796f', '#7f9eb2'],
+      text: '#26312f'
     }
   };
 

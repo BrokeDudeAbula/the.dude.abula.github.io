@@ -3,11 +3,11 @@
     gridSize: 4,
     totalPairs: 8,
     colors: {
-      background: '#111827',
-      cardBack: '#374151',
-      cardFront: '#1e293b',
-      matched: '#10b981',
-      text: '#ffffff'
+      background: '#ffffff',
+      cardBack: '#e8eeeb',
+      cardFront: '#ffffff',
+      matched: '#8ba397',
+      text: '#26312f'
     },
     emojiSymbols: ['🍎', '🍊', '🍋', '🍇', '🍓', '🍒', '🥝', '🍑']
   };

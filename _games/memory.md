@@ -66,7 +66,7 @@ tags:
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    border-radius: 12px;
+    border-radius: 8px;
   }
 
   .memory-card.flipped .memory-card-inner {
@@ -74,8 +74,8 @@ tags:
   }
 
   .memory-card.matched .memory-card-front {
-    background: #10b981;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+    background: #8ba397;
+    box-shadow: none;
   }
 
   .memory-card-front,
@@ -88,27 +88,27 @@ tags:
     align-items: center;
     justify-content: center;
     font-size: 2.5rem;
-    border-radius: 12px;
+    border-radius: 8px;
     user-select: none;
   }
 
   .memory-card-front {
-    background: #1e293b;
-    color: white;
+    background: #ffffff;
+    color: #26312f;
     transform: rotateY(180deg);
-    border: 2px solid #334155;
+    border: 2px solid rgba(85, 121, 111, 0.24);
   }
 
   .memory-card-back {
-    background: #374151;
-    color: #94a3b8;
+    background: #e8eeeb;
+    color: #68736f;
     font-size: 2rem;
     font-weight: bold;
-    border: 2px solid #4b5563;
+    border: 2px solid rgba(85, 121, 111, 0.24);
   }
 
   .memory-card:hover .memory-card-back {
-    background: #4b5563;
+    background: #d4dfda;
   }
 
   @media (max-width: 480px) {
