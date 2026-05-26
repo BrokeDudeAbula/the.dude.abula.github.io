@@ -58,10 +58,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 17:29:31 CST
+- [x] 完成时间：2026-05-26 17:30:48 CST
+- [x] 遇到的问题：无阻塞；`bundle exec jekyll build --trace` 成功，但输出既有 Liquid Warning：`MIGRATION_CHIRPY.md` line 317 中示例 `{{ ... | relative_url }}` 表达式无法被 Liquid 解析。
+- [x] 备注：已确认 `main` tracked 工作树干净；已创建 `pre-chirpy-migration` tag；已创建并切换到 `vibecode/chirpy-migration`；已创建外部备份 `../the.dude.abula.github.io.bak`，并排除 `_site/`、`.jekyll-cache/`、`.sass-cache/`、`vendor/`、`node_modules/`；根目录忽略文件如 `prompt.md` 未纳入处理。
 ```
 
 ---
