@@ -609,10 +609,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 20:41:11 CST
+- [x] 完成时间：2026-05-26 20:46:49 CST
+- [x] 遇到的问题：无阻塞；短时 serve 文本检查首次使用 Ruby 默认二进制编码检索中文时触发 `Encoding::CompatibilityError`，已强制 UTF-8 后复验通过。
+- [x] 备注：已将 `_migration_backup/old-site/pages/about.md` 正文迁入 `_tabs/about.md`，新增 `_tabs/projects.md` 通过 `site.data.projects` 渲染项目列表并为外链添加 `rel="noopener"`；已将 `_data/projects.yml` 中日期 `2025-Sep-24` 规范为 `2025-09-24` 并移除注释样例；已确认 `pages/` 与 `_data/navigation.yml` 不存在。`bundle exec jekyll build --trace` 成功；短时 serve 验证 `/projects/`、`/about/`、`/games/`、`/categories/`、`/tags/`、`/archives/` 均返回 200，About 关键章节与 Projects 项目名均可检索，服务已停止。
 ```
 
 ---

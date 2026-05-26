@@ -6,10 +6,5 @@
 - name: the.dude.abula.github.io
   summary: A github.io web for TheDudeAbula
   url: https://github.com/BrokeDudeAbula/the.dude.abula.github.io
-  date: 2025-Sep-24
+  date: 2025-09-24
   featured: true
-# - name: Remote WFH Dashboard
-#   summary: Aggregates productivity signals for distributed teams.
-#   url: https://github.com/the-dude-abula/wfh-dashboard
-#   date: YYYY-MM-DD
-#   featured: true
