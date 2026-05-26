@@ -705,10 +705,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 20:48:00 CST
+- [x] 完成时间：2026-05-26 21:10:35 CST；返工完成时间：2026-05-26 21:24:00 CST
+- [x] 遇到的问题：review/test 发现自我介绍文章中的旧 HTML 图片写法 `{{ '/assets/img/IMG_4693.JPG' | relative_url }}` 会被 Chirpy 图片处理链再次包一层 `relative_url`，生成 `/the.dude.abula.github.io/the.dude.abula.github.io/assets/img/IMG_4693.JPG` 并在 serve 日志中出现 404；已按最小修复将该图片 `src` 改为 `/assets/img/IMG_4693.JPG`，并移除手写 `loading="lazy"`，复验图片资源 200。首次预览曾用 `--baseurl ''`，随后独立 build 按 `_config.yml` 的 `baseurl` 重写 `_site`，造成一轮本地资源 404 验证干扰；已停止服务后按默认 baseurl 重新 serve 复验。
+- [x] 备注：已从现有 `assets/img/IMG_4693.JPG` 左上角小头像裁切生成 512x512 PNG `assets/img/avatar.png`，并设置 `_config.yml` 的 `avatar: /assets/img/avatar.png`；`social.name/email/GitHub` 已确认，comments/analytics 保持空配置。新增 `_data/locales/zh-CN.yml` 仅覆盖 `tabs.projects` 与 `tabs.games`，修复 Projects/Games 导航中文显示和 `/games/` 浏览器标题前缀为空问题，不覆盖 `head.html`。已在 `assets/css/jekyll-theme-chirpy.scss` 末尾追加少量品牌/可读性覆盖并保留官方 `@use main...bundle` 入口。未生成 favicon 套件，未配置评论、Analytics/Giscus，占位 ID 与 workflow 均未添加。`bundle exec jekyll build --trace`、`JEKYLL_ENV=production bundle exec jekyll build --trace` 均通过；短时 serve 使用默认 `baseurl` 验证首页、文章、Projects、Games、About、2048 游戏页、头像、社交链接、移动端汉堡菜单、明暗模式和游戏 Canvas 基础可见性，控制台无 error，服务已停止。
 ```
 
 ---

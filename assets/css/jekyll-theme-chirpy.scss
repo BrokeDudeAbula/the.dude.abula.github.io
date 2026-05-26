@@ -485,3 +485,65 @@
     font-size: 1.5rem;
   }
 }
+
+/* M6 品牌与可读性微调：保留 Chirpy 主样式，仅收敛头像、链接和内容密度。 */
+:root {
+  --link-color: #2563eb;
+  --link-underline-color: color-mix(in srgb, var(--link-color) 32%, transparent);
+}
+
+[data-mode='dark'] {
+  --link-color: #60a5fa;
+  --link-underline-color: color-mix(in srgb, var(--link-color) 42%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-mode='light']) {
+    --link-color: #60a5fa;
+    --link-underline-color: color-mix(in srgb, var(--link-color) 42%, transparent);
+  }
+}
+
+#sidebar {
+  .site-title {
+    letter-spacing: 0;
+  }
+
+  .site-subtitle {
+    line-height: 1.45;
+  }
+}
+
+#avatar {
+  background: var(--card-bg);
+
+  img {
+    object-fit: cover;
+  }
+}
+
+#main-wrapper a:not(.img-link):not(.btn):not(.nav-link) {
+  text-underline-offset: 0.18rem;
+  text-decoration-color: var(--link-underline-color);
+}
+
+.post-content,
+.game-body {
+  line-height: 1.8;
+}
+
+.project-list h2,
+.game-card h2 {
+  letter-spacing: 0;
+}
+
+@media (max-width: 576px) {
+  .post-content,
+  .game-body {
+    line-height: 1.75;
+  }
+
+  .game-card {
+    padding: 1rem;
+  }
+}
