@@ -4,6 +4,7 @@ _site/
 .jekyll-metadata
 .DS_Store
 node_modules/
+vendor/
 vendor/bundle/
 .bundle/
 .env
@@ -15,3 +16,5 @@ Gemfile.lock
 prompt.md
 
 _migration_backup/
+
+*.gem

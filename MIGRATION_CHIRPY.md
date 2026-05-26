@@ -844,10 +844,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 21:35 CST
+- [x] 完成时间：2026-05-26 21:42 CST
+- [x] 遇到的问题：首次 `bundle exec htmlproofer _site --disable-external` 发现 `_site` 中 SEO canonical/og:url 仍为 `http://localhost:4000/...`；源码 `_config.yml` 的 `url/baseurl` 正确，清理 `.jekyll-cache` 和 `_site` 后重跑 production build，htmlproofer 通过。未修改页面内容，未向 workflow 增加额外 ignore。
+- [x] 备注：已从 `/tmp/chirpy-starter/.github/workflows/pages-deploy.yml` 复制当前 Starter workflow，并补齐 `.gitignore` 中 Chirpy 推荐项；`_config.yml` 已确认 `url: "https://brokedudeabula.github.io"`、`baseurl: "/the.dude.abula.github.io"`。本轮未 push、未 merge；GitHub Pages Source 仍需在仓库设置切到 GitHub Actions；线上验证待推送到 `main` 后完成。
 ```
 
 ---
