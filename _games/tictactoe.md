@@ -29,7 +29,7 @@ tags:
     <button id="mode-ai" class="game-btn active">人机对战</button>
     <button id="mode-pvp" class="game-btn">双人对战</button>
   </div>
-  <div id="game-difficulty" style="display: none;">
+  <div id="game-difficulty" hidden>
     <span class="score-label">难度：</span>
     <button id="difficulty-easy" class="game-btn active">简单</button>
     <button id="difficulty-hard" class="game-btn">困难</button>

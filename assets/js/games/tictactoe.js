@@ -169,8 +169,10 @@
     if (isGameOver) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    if (rect.width === 0 || rect.height === 0) return;
+
+    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
 
     const col = Math.floor(x / cellSize);
     const row = Math.floor(y / cellSize);
@@ -456,11 +458,11 @@
     if (mode === 'ai') {
       modeAiBtn.classList.add('active');
       modePvpBtn.classList.remove('active');
-      difficultyDiv.style.display = 'block';
+      difficultyDiv.hidden = false;
     } else {
       modePvpBtn.classList.add('active');
       modeAiBtn.classList.remove('active');
-      difficultyDiv.style.display = 'none';
+      difficultyDiv.hidden = true;
     }
 
     // 重置游戏

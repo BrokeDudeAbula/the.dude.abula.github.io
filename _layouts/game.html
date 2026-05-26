@@ -1,0 +1,19 @@
+---
+layout: page
+---
+
+<div class="game-page">
+  <h1 class="dynamic-title">{{ page.title }}</h1>
+
+  {% if page.description %}
+    <p class="post-desc">{{ page.description | strip_html }}</p>
+  {% endif %}
+
+  <div class="game-body">
+    {{ content }}
+  </div>
+
+  <p class="game-back-link">
+    <a href="{{ '/games/' | relative_url }}">返回游戏列表</a>
+  </p>
+</div>

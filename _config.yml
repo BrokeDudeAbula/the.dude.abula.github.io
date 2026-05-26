@@ -165,6 +165,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  games:
+    output: true
+    permalink: /games/:title/
 
 defaults:
   - scope:
@@ -187,6 +190,12 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: ""
+      type: games
+    values:
+      layout: game
+      toc: false
 
 sass:
   style: compressed

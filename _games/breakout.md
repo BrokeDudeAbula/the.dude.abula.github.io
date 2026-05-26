@@ -47,19 +47,14 @@ tags:
 
 <div class="game-instructions">
   <h3>图片砖块功能</h3>
-  <p>游戏支持使用一张图片作为砖块背景，每个砖块显示图片的一部分。启用此功能：</p>
+  <p>游戏支持使用一张图片作为砖块背景，每个砖块显示图片的一部分。当前页面通过脚本标签的 <code>data-background-image</code> 指定图片路径：</p>
   <ol>
-    <li>打开 <code>assets/js/games/breakout.js</code></li>
-    <li>找到 <code>CONFIG</code> 对象</li>
-    <li>将 <code>useImageBricks</code> 设置为 <code>true</code></li>
-    <li>修改 <code>backgroundImage</code> 路径为你想要的图片</li>
+    <li>将图片放入 <code>assets/img/</code></li>
+    <li>修改本页底部脚本标签的 <code>data-background-image</code> 值</li>
+    <li>路径请继续使用 Jekyll 的 <code>relative_url</code>，避免子路径发布时资源 404</li>
   </ol>
   <p><strong>推荐图片尺寸：</strong>3:1 比例，如 1500×500px 或 1800×600px</p>
   <p>砖块消除后，图片会逐渐显现，类似拼图效果！</p>
 </div>
 
-<script>
-  // 定义 Jekyll baseurl 全局变量，供 JavaScript 使用
-  window.siteBaseurl = '{{ site.baseurl }}';
-</script>
-<script src="{{ '/assets/js/games/breakout.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/games/breakout.js' | relative_url }}" data-background-image="{{ '/assets/img/background.png' | relative_url }}"></script>

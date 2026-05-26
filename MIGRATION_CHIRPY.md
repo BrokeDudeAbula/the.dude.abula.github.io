@@ -536,10 +536,10 @@
 ### 进度同步
 
 ```
-- [ ] 开始时间：
-- [ ] 完成时间：
-- [ ] 遇到的问题：
-- [ ] 备注：
+- [x] 开始时间：2026-05-26 19:15:15 CST
+- [x] 完成时间：2026-05-26 19:32:57 CST
+- [x] 遇到的问题：`/games/` 浏览器标题前缀为空，原因是 Chirpy `head.html` 对 tabs 只读取 locale 字典，当前 M4 允许范围不包含 `_data/locales` 或覆盖 head；页面内容、SEO `og:title` 与导航均正常。Browser 键盘方向键自动化受 in-app browser locator 限制，已改用点击/输入类最小交互验证，键盘操作留给人工复测。
+- [x] 备注：已注册 games collection/defaults，新增 `game` layout 与 Games tab；迁移猜数字、记忆翻牌内联样式到 Chirpy CSS 入口；打砖块改用 script `data-background-image` 注入图片路径并移除游戏内联脚本。根据 review 返工修复打砖块/井字棋 canvas CSS 缩放后的坐标映射，更新图片砖块说明，并清理打砖块图片加载 debug 输出。`bundle exec jekyll build --trace`、`JEKYLL_ENV=production bundle exec jekyll build --trace`、短时 serve HTTP/DOM/控制台检查均通过，服务已停止。
 ```
 
 ---

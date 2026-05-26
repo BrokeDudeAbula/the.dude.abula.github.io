@@ -1,4 +1,6 @@
 (function() {
+  const currentScript = document.currentScript;
+
   // 游戏配置
   const CONFIG = {
     canvasWidth: 480,
@@ -15,7 +17,7 @@
     brickOffsetLeft: 35,
     // 图片砖块配置
     useImageBricks: true,  // 设置为 true 启用图片砖块
-    backgroundImage: (window.siteBaseurl || '') + '/assets/img/background.png',  // 背景图片路径（推荐 3:1 比例，如 1500x500px）
+    backgroundImage: currentScript?.dataset.backgroundImage || '/assets/img/background.png',  // 背景图片路径（推荐 3:1 比例，如 1500x500px）
     colors: {
       background: '#ffffff',
       paddle: '#55796f',
@@ -97,14 +99,12 @@
       backgroundImage.src = CONFIG.backgroundImage;
       backgroundImage.onload = () => {
         isImageLoaded = true;
-        console.log('背景图片加载成功，路径：', CONFIG.backgroundImage);
         // 图片加载完成后重新绘制砖块
         if (!isGameRunning) {
           drawBricks();
         }
       };
       backgroundImage.onerror = () => {
-        console.warn('背景图片加载失败，将使用纯色砖块');
         isImageLoaded = false;
       };
     }
@@ -552,7 +552,10 @@
   function handleMouseMove(e) {
     if (!isGameRunning || isPaused) return;
 
-    const relativeX = e.clientX - canvas.getBoundingClientRect().left;
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width === 0) return;
+
+    const relativeX = (e.clientX - rect.left) * (canvas.width / rect.width);
     if (relativeX > 0 && relativeX < canvas.width) {
       paddle.x = relativeX - CONFIG.paddleWidth / 2;
 
