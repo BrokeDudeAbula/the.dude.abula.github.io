@@ -13,7 +13,7 @@ log/
 tmp/
 Gemfile.lock
 
-prompt.md
+prompt*
 
 _migration_backup/
 
